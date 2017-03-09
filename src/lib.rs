@@ -157,15 +157,15 @@ impl PathBuilder {
     /// Use either points which were added in that particular order or
     /// use provided parameters to sort points added in arbitrary
     /// order.
-    pub fn finalize(&self) -> Path
+    pub fn finalize(self) -> Path
     {
         if self.params.is_empty() {
-            Path { points: self.points.to_vec(),
+            Path { points: self.points,
                    lvalues: Vec::new(),
                    changed: true,
                    current_length: 0.0f32, }
         } else {
-            Path { points: self.sorted.to_vec(),
+            Path { points: self.sorted,
                    lvalues: Vec::new(),
                    changed: true,
                    current_length: 0.0f32, }
